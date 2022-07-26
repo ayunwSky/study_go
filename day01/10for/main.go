@@ -45,11 +45,29 @@ func main() {
 	// }
 
 	// 九九乘法表
-	for i := 1; i <= 9; i++ {
-		for j := 1; j <= i; j++ {
-			fmt.Printf("%d*%d=%d ", i, j, j*i)
+	// for i := 1; i <= 9; i++ {
+	// 	for j := 1; j <= i; j++ {
+	// 		fmt.Printf("%d*%d=%d ", i, j, j*i)
+	// 	}
+	// 	fmt.Println()
+	// }
+
+	// 跳出for循环
+	// for i := 0; i < 10; i++ {
+	// 	if i == 5 {
+	// 		break	// 跳出for循环
+	// 	}
+	// 	fmt.Printf("i=%d\n",i)
+	// }
+	// fmt.Println("over...")
+
+	// 当 i=5时，跳过此次for循环
+	for i := 0; i < 10; i++ {
+		if i == 5 {
+			continue	// 跳过此次for循环,进行下一次循环
 		}
-		fmt.Println()
+		fmt.Printf("i=%d\n",i)
 	}
+	fmt.Println("over...")
 
 }
