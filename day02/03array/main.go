@@ -27,6 +27,7 @@ func main() {
 	// 初始化方法1
 	a1 = [3]bool{true, false, true}
 	fmt.Println(a1)
+
 	// 初始化方法2
 	// a10 := [10]int{0,1,2,3,4,5,6,7,8,9}
 
@@ -37,6 +38,7 @@ func main() {
 	fmt.Printf("%d\n", a10)
 
 	fmt.Println()
+
 	// 初始化方法3
 	// a3 :=[5]int{1,2}	// 默认除了1和2，后面都是0值。[1 2 0 0 0]
 
@@ -52,12 +54,14 @@ func main() {
 	}
 
 	fmt.Println()
+
 	// 方法2:for range
 	for k, v := range cities {
 		fmt.Println(k, v)
 	}
 
 	fmt.Println()
+
 	// 多维数组,默认数组中只能放同一种类型
 	// 创建一个二维数组：[[1 2] [3 4] [5 6]]
 	var a11 [3][2]int
