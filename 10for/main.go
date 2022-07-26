@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	// 基本格式
+	// Go 语言中循环类型只有for循环
+	// for循环的基本格式
 	// for i := 0; i < 10; i++ {
 	// 	fmt.Println(i)
 	// }
@@ -11,7 +12,7 @@ func main() {
 	// fmt.Println()
 
 	// 省略初始语句
-	// var i =5
+	// i :=5
 	// for ;i<10;i++{
 	// 	fmt.Println(i)
 	// }
@@ -29,6 +30,15 @@ func main() {
 	// }
 
 	// for range 键值循环
+	/*
+		Go语言中可以使用for range遍历数组、切片、字符串、map 及通道（channel）
+		通过for range遍历的返回值有以下规律：
+			1、数组、切片、字符串返回索引和值。
+			2、map返回键和值。
+			3、通道（channel）只返回通道内的值。
+	*/
+
+	// 一个中文大约占 3 到 4个字节，所以小字索引是6，姜字索引就到了9
 	// s := "hello 小姜"
 	// for k, v := range s {
 	// 	fmt.Printf("%d %c\n", k, v)
