@@ -35,13 +35,17 @@ func main() {
 	fmt.Printf("%T\n", a)
 	fmt.Println(a)
 
+	fmt.Println()
+
 	b := f2
 	fmt.Printf("%T\n", b)
 
+	fmt.Println()
 	f3(f2)
 	f3(b)
 	fmt.Printf("%T\n", f4)
-	
+
+	fmt.Println()
 	f5Res := f5(f2)
 	fmt.Println(f5Res)
 	fmt.Printf("%T\n", f5Res)
