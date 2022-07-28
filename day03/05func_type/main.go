@@ -22,6 +22,15 @@ func f4(x, y int) int {
 	return x + y
 }
 
+func ff(a, b int) int {
+	return a + b
+}
+
+// 函数作为返回值
+func f6(x func() int) func(int, int) int {
+	return ff
+}
+
 // 函数作为返回值
 func f5(x func() int) func(int, int) int {
 	ret := func(a, b int) int {
