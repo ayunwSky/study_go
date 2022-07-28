@@ -40,9 +40,8 @@ func main() {
 
 	f3(f2)
 	f3(b)
-
 	fmt.Printf("%T\n", f4)
-
+	
 	f5Res := f5(f2)
 	fmt.Println(f5Res)
 	fmt.Printf("%T\n", f5Res)
