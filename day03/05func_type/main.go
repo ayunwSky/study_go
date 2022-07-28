@@ -39,6 +39,7 @@ func main() {
 	fmt.Printf("%T\n", b)
 
 	f3(f2)
+	f3(b)
 
 	fmt.Printf("%T\n", f4)
 
