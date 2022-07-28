@@ -12,7 +12,7 @@ func f2() int {
 	return 10
 }
 
-// 函数作为参数
+// 函数作为参数，且有一个 int 类型的返回值
 func f3(x func() int) {
 	ret := x()
 	fmt.Println(ret)
@@ -42,7 +42,7 @@ func main() {
 
 	fmt.Printf("%T\n", f4)
 
-	f5Res :=f5(f2)
+	f5Res := f5(f2)
 	fmt.Println(f5Res)
 	fmt.Printf("%T\n", f5Res)
 }
