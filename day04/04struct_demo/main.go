@@ -47,7 +47,7 @@ func main() {
 	// 用 new 的方法为 struct 初始化，开辟一块内存
 	var p2 = new(person)
 	(*p2).name = "姜姜"
-	p2.gender = "保密"	// 直接用语法糖的方式赋值
+	p2.gender = "保密" // 直接用语法糖的方式赋值
 
 	fmt.Printf("%T\n", p2)
 	fmt.Printf("p2 保存的值的内存地址:%p\n", p2) // p2 保存的值就是一个内存地址
