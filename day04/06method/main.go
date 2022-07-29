@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+// 标识符：变量名 函数名 类型名 方法名
+// Go 中如果标识符首字母大写就表示对外可见，可以被调用使用
+
+// dog 是一个狗的结构体
 type dog struct {
 	name string
 }
