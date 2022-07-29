@@ -16,13 +16,20 @@ type yourInt = int
 func main() {
 	var n myInt
 	n = 100
-	fmt.Printf("%T\n",n)
+	fmt.Printf("%T\n",n)	// main.myInt
 	fmt.Println(n)
 
 	fmt.Println()
 
 	var m yourInt
 	m = 20
-	fmt.Printf("%T\n",m)
+	fmt.Printf("%T\n",m)	// int
 	fmt.Println(m)
+
+	/*
+		n的类型是：main.MyInt，表示main包下定义的 MyInt 类型
+		m的类型是：int
+		
+		MyInt类型只会在代码中存在，编译完成时并不会有MyInt类型
+	*/
 }
