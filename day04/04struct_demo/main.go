@@ -107,7 +107,7 @@ func main() {
 		b: int8(20),
 		c: int8(30),
 	}
-	fmt.Printf("%p\n", &(m.a)) // 0xc0000aa0ca
-	fmt.Printf("%p\n", &(m.b)) // 0xc0000aa0cb
-	fmt.Printf("%p\n", &(m.c)) // 0xc0000aa0cc
+	fmt.Printf("%p\n", &(m.a)) // 0xc00001a11a
+	fmt.Printf("%p\n", &(m.b)) // 0xc00001a11b
+	fmt.Printf("%p\n", &(m.c)) // 0xc00001a11c
 }
