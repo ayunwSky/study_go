@@ -13,6 +13,13 @@ import (
 	1. 把 Go 语言中的结构体变量转成 json 格式的字符串，称为序列化
 	2. 把 json 格式的字符串转换成 Go语言中能识别的结构体，称为反序列化
 
+	在 Go 中并不是所有的类型都能进行序列化：
+
+	1) JSON object key 只支持 string
+	2) Channel、complex、function 等 type 无法进行序列化
+	3) 数据中如果存在循环引用，则不能进行序列化，因为序列化时会进行递归
+	4) Pointer 序列化之后是其指向的值或者是 nil
+
 	注意：只有 struct 中支持导出的 field 才能被 JSON package 序列化，即首字母大写的 field。
 */
 
