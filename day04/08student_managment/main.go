@@ -30,7 +30,7 @@ func newStudent(id int64, name string) *student {
 func showAllStudents() {
 	// 遍历所有学生
 	for k, v := range allStudent {
-		fmt.Printf("学号:%T 姓名:%s\n", k, v.name)
+		fmt.Printf("学号:%d 姓名:%s\n", k, v.name)
 	}
 }
 
@@ -42,10 +42,10 @@ func addStudent() {
 		name string
 	)
 
-	fmt.Println("请输入学生学号:")
+	fmt.Print("请输入学生学号:")
 	fmt.Scanln(&id)
 
-	fmt.Println("请输入学生姓名:")
+	fmt.Print("请输入学生姓名:")
 	fmt.Scanln(&name)
 
 	// 2. 添加到 allStudent 这个 map 中
@@ -56,7 +56,14 @@ func addStudent() {
 }
 
 func deleteStudent() {
-
+	var (
+		deleteID int64
+	)
+	// 1. 让用户输入要删除的学生学号
+	fmt.Print("请输入要删除的学生学号:")
+	fmt.Scanln(&deleteID)
+	// 2. 到 allStuent 这个 map 中根据学号删除键值对
+	delete(allStudent, deleteID)
 }
 
 func main() {
