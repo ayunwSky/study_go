@@ -11,8 +11,8 @@ type animal struct {
 
 // 狗的结构体
 type dog struct {
-	feet uint8
-	animal	// animal 拥有的方法，dog此时都拥有。变相的模拟实现了一个继承
+	feet   uint8
+	animal // animal 拥有的方法，dog此时都拥有。变相的模拟实现了一个继承
 }
 
 // 给 animal 实现一个动的方法
@@ -33,7 +33,7 @@ func main() {
 		feet: 4,
 	}
 	fmt.Println(d1)
-	
+
 	fmt.Println()
 
 	d1.speak()
