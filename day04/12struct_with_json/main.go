@@ -21,25 +21,30 @@ import (
 	4) Pointer 序列化之后是其指向的值或者是 nil
 
 	注意：只有 struct 中支持导出的 field 才能被 JSON package 序列化，即首字母大写的 field。
+	但是JSON 对象一般都是小写表示，但是Marshal后寄送对象的首字母仍然还是大写。那我们通常都要用小写的怎么解决？
+	使用 struct tags 来解决。
+
+	Struct tag 可以决定 Marshal 和 Unmarshal 函数如何序列化和反序列化数据。
 */
 
 
 
 type person struct {
-	// 注意：这里是person结构体中定义的，所以在 json 这个包做序列化的时候是会出现空 json 的情况
+	// 注意：这里是 person 结构体中定义的，所以在 json 这个包做序列化的时候是会出现空 json 的情况
 	// 解决这个空 json 数据的方法就是将 name 和 age 都改成 大写字母开头的，这样 json 包就能识别到
 
-	// 前端可能会告诉你，我前前端处理的时候，都是用小写的，你给我都是大写字母开头不行，怎么解决？
-	// 用 json 去解析的时候，用反引号中的小写的 name 来代替 Name,可以写多个，比如 json中用name
-	// db 数据库中也用 name，ini格式配置文件中也用 name
+	// 前端可能会告诉你，我前端处理的时候，都是用小写的，你给我都是大写字母开头不行，怎么解决？
+	// 使用 struct tags，即用 json 去解析的时候，用反引号中的小写的 name 来代替 Name,
+	// 可以写多个，比如 json中用name，db 数据库中也用 name，ini格式配置文件中也用 name
 	// 注意：在 "json:" 后面不能加空格
+	
 	Name string `json:"name" db:"name" ini:"name"`
 	Age  int    `json:"age"`
 }
 
 type Message struct{
-	Name string
-	Body string
+	Name string `json:"name"`
+	Body string	`json:"body"`
 }
 
 func main() {
