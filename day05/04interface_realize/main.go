@@ -55,7 +55,7 @@ func main() {
 	var a1 animal
 	fmt.Println(a1)	// nil
 
-	// 定义一个 dog 类型的变量 jinmao
+	// 定义一个 dog 类型的变量 jinmao，实例化一只名叫 jinmao 的狗
 	jinmao := dog{
 		name: "金毛",
 		feet: 4,
@@ -72,6 +72,7 @@ func main() {
 	fmt.Println("------------------------")
 
 	var a2 animal
+	// ，实例化一只名叫 kfc 的鸡
 	kfc := chicken{
 		feet: 2,
 	}
