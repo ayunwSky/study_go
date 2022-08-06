@@ -12,6 +12,7 @@ import "fmt"
 /*
 接口保存的数据分为两部分：值的动态类型和动态值。
 一个接口类型的变量，什么值都可以存
+接口是一个引用类型，存放的是动态类型和动态值
 
 比如：该例子中两个类型就是 main.dog 和 main.chicken
 值就是我们再声明变量 jinmao 和 kfc 的时候赋的值
@@ -52,6 +53,7 @@ func (c chicken) eat(food string) {
 func main() {
 	// 定义一个接口类型的变量
 	var a1 animal
+	fmt.Println(a1)	// nil
 
 	// 定义一个 dog 类型的变量 jinmao
 	jinmao := dog{
