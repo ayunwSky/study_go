@@ -66,17 +66,21 @@ init 函数：
 // 起别名的方式
 import (
 	"fmt"
-
-	"github.com/allenjol/day05/calculate"
+	"github.com/allenjol/day05/09package_import_demo/calculate"
 )
 
 var x = 100
+
 const pi = 3.14
 
 func init() {
 	fmt.Println("我是main下的init函数,我会自动执行")
+
 	fmt.Println(x)
 	fmt.Println(pi)
+
+	name := "allen_jol"
+	fmt.Printf("name is: %s\n", name)
 }
 
 func main() {
