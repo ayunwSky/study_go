@@ -72,7 +72,6 @@ import (
 )
 
 var x = 100
-
 const pi = 3.14
 
 func init() {
