@@ -2,8 +2,7 @@ package main
 
 /*
 在要导入包的路径最前面加上一个名字，这个名字称为别名
-比如下面示例中，ayunw 就是这个包的别名，调用的时候
-就要用 ayunw.Calc 来进行调用。
+比如下面示例中， 就是这个包的别名，调用的时候就要用 ayunw.Calc 来进行调用。
 
 强烈建议：别名也应该起的见名知意，且**强烈建议目录名和包名保持一致**
 
@@ -68,7 +67,7 @@ init 函数：
 import (
 	"fmt"
 
-	ayunw "github.com/allenjol/day05/calculate"
+	"github.com/allenjol/day05/calculate"
 )
 
 var x = 100
@@ -81,6 +80,6 @@ func init() {
 }
 
 func main() {
-	ret := ayunw.Calc(10, 20)
+	ret := calculate.Calc(10, 20)
 	fmt.Println(ret)
 }
