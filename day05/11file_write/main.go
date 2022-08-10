@@ -9,10 +9,21 @@ import (
 
 // 写文件
 /*
+func OpenFile(name string, flag int, perm FileMode) (*File, error) {
+	...
+}
 
-os.O_TRUNC 会清空源文件内容再写入内容到文件
+perm：文件权限，一个八进制数。r（读）04，w（写）02，x（执行）01
+
+os.O_WRONLY: 只写
+os.O_CREATE: 创建文件
+os.O_RDONLY: 只读
+os.O_RDWR: 读写
+os.O_TRUNC: 清空
+os.O_APPEND: 追加
 */
 
+// Write 和 WriteString
 func writeDemo() {
 	// fileObj, err := os.OpenFile("./a.txt", os.O_APPEND, 0644)
 
@@ -25,12 +36,15 @@ func writeDemo() {
 		fmt.Printf("open file failed, err: %v\n", err)
 		return
 	}
+	defer fileObj.Close()
+
 	// Write 是写入字节，WriteString 是写入字符串
 	fileObj.Write([]byte("喝醉的人都说自己没醉!\n"))
 	fileObj.WriteString("解释不清楚原因!\n")
 	fileObj.Close()
 }
 
+// bufio.NewWriter
 func writeBufioDemo() {
 	fileObj, err := os.OpenFile("./a.txt", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
 	if err != nil {
@@ -38,14 +52,18 @@ func writeBufioDemo() {
 		return
 	}
 	defer fileObj.Close()
+
 	// 创建一个写的对象
-	wr := bufio.NewWriter(fileObj)
+	writer := bufio.NewWriter(fileObj)
 	// 会先写入到缓存中而不是写入到文件中
-	wr.WriteString("使用bufio来写内容到文件...\n")
+	for i := 0; i < 10; i++ {
+		writer.WriteString("使用bufio来写内容到文件...\n")
+	}
 	// 将缓存中的内容写入到文件
-	wr.Flush()
+	writer.Flush()
 }
 
+// ioutil.WriteFile
 func writeIoutilDemo() {
 	str := "你好浙江"
 	err := ioutil.WriteFile("./a.txt", []byte(str), 0644)
