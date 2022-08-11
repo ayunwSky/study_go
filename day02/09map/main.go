@@ -4,6 +4,11 @@ import "fmt"
 
 // map 是一种无序的，基于key-value的数据结构。
 // Go中的map是引用类型，必须初始化才能使用
+/*
+	https://haicoder.net/golang/golang-map-assign.html
+	https://blog.csdn.net/ynzcxx/article/details/88942551
+*/
+
 func main() {
 	var m1 map[string]int
 	fmt.Println(m1 == nil) // 还没初始化(没在内存中开辟空间)
