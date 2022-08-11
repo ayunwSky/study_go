@@ -3,7 +3,7 @@ package main
 /*
 在要导入包的路径最前面加上一个名字，这个名字称为别名
 比如下面示例中， 就是这个包的别名，调用的时候就要用 ayunw.Calc 来进行调用。
-如果使用的是GOPATH的方法，那么一般导入包就是从src的下一层目录开始导入，比如：
+如果使用的是GOPATH的方法，那么一般导入包就是从$GOPATH/src的下一层目录开始导入，比如：
 src/github.com/ayunwSky/calculate,那么导入的路径就是：import "github.com/ayunwSky/calculate"
 
 强烈建议：别名也应该起的见名知意，且**强烈建议目录名和包名保持一致**
