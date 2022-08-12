@@ -68,7 +68,7 @@ init 函数：
 // 起别名的方式
 import (
 	"fmt"
-	"github.com/allenjol/day05/09package_import_demo/calculate"
+	"github.com/ayunwSky/day05/09package_import_demo/calculate"
 )
 
 var x = 100
