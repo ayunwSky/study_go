@@ -1,3 +1,3 @@
-module github.com/allenjol/02var
+module github.com/ayunwSky/02var
 
 go 1.18

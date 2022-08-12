@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 // 1、变量
-// var name string = "allenjol"
+// var name string = "ayunwSky"
 // var age int = 18
 
 // 批量声明变量

@@ -1,3 +1,3 @@
-module github.com/allenjol/06bool
+module github.com/ayunwSky/06bool
 
 go 1.18

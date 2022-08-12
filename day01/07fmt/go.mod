@@ -1,3 +1,3 @@
-module github.com/allenjol/07fmt
+module github.com/ayunwSky/07fmt
 
 go 1.18

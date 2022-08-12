@@ -23,9 +23,9 @@ Go中字符串必须用双引号包裹
 func main() {
 	// 字符串转义，打印一个windows路径,加 \ 将原来的路径中的 \ 进行转义
 	// 双引号中包裹单引号不需要转义
-	path1 := "E:\\gopath\\src\\github.com\\allenjol\\08string"
-	path2 := "\"E:\\gopath\\src\\github.com\\allenjol\\08string\""
-	path3 := "'E:\\gopath\\src\\github.com\\allenjol\\08string'"
+	path1 := "E:\\gopath\\src\\github.com\\ayunwSky\\08string"
+	path2 := "\"E:\\gopath\\src\\github.com\\ayunwSky\\08string\""
+	path3 := "'E:\\gopath\\src\\github.com\\ayunwSky\\08string'"
 
 	fmt.Println("path1=", path1)
 	fmt.Println("path2=", path2)
@@ -46,7 +46,7 @@ func main() {
 	s3 := `原样输出`
 	fmt.Println(s3)
 
-	s4 := `'E:\gopath\src\github.com\allenjol\08string'`
+	s4 := `'E:\gopath\src\github.com\ayunwSky\08string'`
 	fmt.Println(s4)
 
 	// 字符串常用操作

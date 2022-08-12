@@ -1,3 +1,3 @@
-module github.com/allenjol/04int
+module github.com/ayunwSky/04int
 
 go 1.18

@@ -1,3 +1,3 @@
-module github.com/allenjol/01hello
+module github.com/ayunwSky/01hello
 
 go 1.18

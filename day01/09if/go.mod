@@ -1,3 +1,3 @@
-module github.com/allenjol/09if
+module github.com/ayunwSky/09if
 
 go 1.18

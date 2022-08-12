@@ -1,3 +1,3 @@
-module github.com/allenjol/08string
+module github.com/ayunwSky/08string
 
 go 1.18

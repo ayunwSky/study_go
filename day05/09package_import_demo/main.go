@@ -10,10 +10,10 @@ src/github.com/ayunwSky/calculate,那么导入的路径就是：import "github.c
 
 单行导入：
 	import "fmt"
-	import "github.com/allenjol/day05/calculate"
+	import "github.com/ayunwSky/day05/calculate"
 
 导入包时加别名：
-	import calc "github.com/allenjol/day05/calculate"
+	import calc "github.com/ayunwSky/day05/calculate"
 
 多行导入：
 	import (
@@ -57,7 +57,7 @@ init 函数：
 // import (
 // 	"fmt"
 
-// 	"github.com/allenjol/day05/calculate"
+// 	"github.com/ayunwSky/day05/calculate"
 // )
 
 // func main() {
@@ -68,6 +68,7 @@ init 函数：
 // 起别名的方式
 import (
 	"fmt"
+
 	"github.com/ayunwSky/day05/09package_import_demo/calculate"
 )
 
