@@ -19,4 +19,5 @@ http://docscn.studygolang.com/doc/
 git remote
 git remote rm origin
 git remote add origin https://github.com/ayunwSky/study_go.git
+git push --set-upstream origin master
 ```
