@@ -21,3 +21,5 @@ git remote rm origin
 git remote add origin https://github.com/ayunwSky/study_go.git
 git push --set-upstream origin master
 ```
+之后就可以直接用 git push 命令来推送代码了
+
