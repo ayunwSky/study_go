@@ -61,7 +61,7 @@ func main() {
 
 	// map 和 slice 组合
 	// 元素类型为 map 的切片
-	s1 := make([]map[int]string, 10, 10)
+	s1 := make([]map[int]string, 10)
 	// 对 map 做初始化
 	s1[0] = make(map[int]string, 1)
 	s1[0][10] = "杭州"
