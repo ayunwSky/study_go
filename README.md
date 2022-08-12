@@ -12,3 +12,11 @@ http://docscn.studygolang.com/doc/
 2、new **比较少用**，一般用来给基本数据类型申请内存，如：`string`、`int`等，返回的是对应类型的指针（*string、*int）
 
 3、make 是用于给 `slice`、`map`、`channel` 申请内存，make 函数返回的是对应的这三个类型本身。
+
+
+### Git更改用户名后本地项目如何更换仓库?
+```
+git remote
+git remote rm origin
+git remote add origin https://github.com/ayunwSky/study_go.git
+```
