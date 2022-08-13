@@ -12,6 +12,7 @@ import (
 	"path"
 	"runtime"
 	"strings"
+	"time"
 )
 
 // 自定义日志
@@ -86,4 +87,13 @@ func getLogInfo(skip int) (funcName, fileName string, lineNo int) {
 	funcName = strings.Split(funcName, ".")[1]
 
 	return
+}
+
+// format 和 a 组合起来是一条完整的 msg 日志信息
+func log(lv LogLevel, format string, a ...interface{}) {
+	msg := fmt.Sprintf(format, a...)
+	now := time.Now()
+	funcName, fileName, lineNo := getLogInfo(3)
+	tf := now.Format("2006-01-02 15:04:05")
+	fmt.Printf("[%s] [%s] [fileName:%s - funcName:%s - lineNo:%d]: %s\n", tf, getLogString(lv), fileName, funcName, lineNo, msg)
 }
