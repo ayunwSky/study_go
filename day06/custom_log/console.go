@@ -24,7 +24,7 @@ func NewLog(levelStr string) Logger {
 	level, err := parseLogLevel(levelStr)
 	if err != nil {
 		fmt.Println("parse log level failed!")
-		os.Exit(1)
+		panic(err)
 	}
 
 	return Logger{
