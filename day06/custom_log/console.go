@@ -8,26 +8,25 @@ package custom_log
 
 import (
 	"fmt"
-	"os"
 	"time"
 )
 
 // 往终端上打印日志
 
-// Logger 日志结构体
-type Logger struct {
+// ConsoleLogger 日志结构体
+type ConsoleLogger struct {
 	Level LogLevel
 }
 
 // NewLog 构造函数
-func NewLog(levelStr string) Logger {
+func NewLog(levelStr string) ConsoleLogger {
 	level, err := parseLogLevel(levelStr)
 	if err != nil {
 		fmt.Println("parse log level failed!")
 		panic(err)
 	}
 
-	return Logger{
+	return ConsoleLogger{
 		Level: level,
 	}
 }
@@ -41,11 +40,11 @@ func log(lv LogLevel, format string, a ...interface{}) {
 	fmt.Printf("[%s] [%s] [fileName:%s - funcName:%s - lineNo:%d]: %s\n", tf, getLogString(lv), fileName, funcName, lineNo, msg)
 }
 
-func (l Logger) enable(LogLevel LogLevel) bool {
+func (l ConsoleLogger) enable(LogLevel LogLevel) bool {
 	return LogLevel >= l.Level
 }
 
-func (l Logger) Debug(format string, a ...interface{}) {
+func (l ConsoleLogger) Debug(format string, a ...interface{}) {
 	// 往指定的地方写日志
 	//if l.Level > DEBUG {
 	//	now := time.Now()
@@ -58,7 +57,7 @@ func (l Logger) Debug(format string, a ...interface{}) {
 	}
 }
 
-func (l Logger) Info(format string, a ...interface{}) {
+func (l ConsoleLogger) Info(format string, a ...interface{}) {
 	// 往指定的地方写日志
 	if l.enable(INFO) {
 		//now := time.Now()
@@ -68,7 +67,7 @@ func (l Logger) Info(format string, a ...interface{}) {
 	}
 }
 
-func (l Logger) Warning(format string, a ...interface{}) {
+func (l ConsoleLogger) Warning(format string, a ...interface{}) {
 	// 往指定的地方写日志
 	if l.enable(WARNING) {
 		//now := time.Now()
@@ -78,7 +77,7 @@ func (l Logger) Warning(format string, a ...interface{}) {
 	}
 }
 
-func (l Logger) Error(format string, a ...interface{}) {
+func (l ConsoleLogger) Error(format string, a ...interface{}) {
 	// 往指定的地方写日志
 	if l.enable(ERROR) {
 		//now := time.Now()
@@ -88,7 +87,7 @@ func (l Logger) Error(format string, a ...interface{}) {
 	}
 }
 
-func (l Logger) Fatal(format string, a ...interface{}) {
+func (l ConsoleLogger) Fatal(format string, a ...interface{}) {
 	// 往指定的地方写日志
 	if l.enable(FATAL) {
 		//now := time.Now()
