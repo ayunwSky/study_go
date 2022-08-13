@@ -8,6 +8,7 @@ package custom_log
 
 import (
 	"fmt"
+	"os"
 	"time"
 )
 
@@ -22,7 +23,8 @@ type Logger struct {
 func NewLog(levelStr string) Logger {
 	level, err := parseLogLevel(levelStr)
 	if err != nil {
-		panic(err)
+		fmt.Println("parse log level failed!")
+		os.Exit(1)
 	}
 
 	return Logger{
@@ -32,7 +34,7 @@ func NewLog(levelStr string) Logger {
 
 // format 和 a 组合起来是一条完整的 msg 日志信息
 func log(lv LogLevel, format string, a ...interface{}) {
-	msg := fmt.Sprintf(format,a...)
+	msg := fmt.Sprintf(format, a...)
 	now := time.Now()
 	funcName, fileName, lineNo := getLogInfo(3)
 	tf := now.Format("2006-01-02 15:04:05")
@@ -43,7 +45,7 @@ func (l Logger) enable(LogLevel LogLevel) bool {
 	return LogLevel >= l.Level
 }
 
-func (l Logger) Debug(format string, a...interface{}) {
+func (l Logger) Debug(format string, a ...interface{}) {
 	// 往指定的地方写日志
 	//if l.Level > DEBUG {
 	//	now := time.Now()
@@ -56,7 +58,7 @@ func (l Logger) Debug(format string, a...interface{}) {
 	}
 }
 
-func (l Logger) Info(format string, a...interface{}) {
+func (l Logger) Info(format string, a ...interface{}) {
 	// 往指定的地方写日志
 	if l.enable(INFO) {
 		//now := time.Now()
@@ -66,7 +68,7 @@ func (l Logger) Info(format string, a...interface{}) {
 	}
 }
 
-func (l Logger) Warning(format string, a...interface{}) {
+func (l Logger) Warning(format string, a ...interface{}) {
 	// 往指定的地方写日志
 	if l.enable(WARNING) {
 		//now := time.Now()
@@ -76,7 +78,7 @@ func (l Logger) Warning(format string, a...interface{}) {
 	}
 }
 
-func (l Logger) Error(format string, a...interface{}) {
+func (l Logger) Error(format string, a ...interface{}) {
 	// 往指定的地方写日志
 	if l.enable(ERROR) {
 		//now := time.Now()
@@ -86,7 +88,7 @@ func (l Logger) Error(format string, a...interface{}) {
 	}
 }
 
-func (l Logger) Fatal(format string, a...interface{}) {
+func (l Logger) Fatal(format string, a ...interface{}) {
 	// 往指定的地方写日志
 	if l.enable(FATAL) {
 		//now := time.Now()
