@@ -31,8 +31,12 @@ func NewLog(levelStr string) ConsoleLogger {
 	}
 }
 
+func (c ConsoleLogger) enable(LogLevel LogLevel) bool {
+	return LogLevel >= c.Level
+}
+
 // format 和 a 组合起来是一条完整的 msg 日志信息
-func log(lv LogLevel, format string, a ...interface{}) {
+func (c ConsoleLogger) log(lv LogLevel, format string, a ...interface{}) {
 	msg := fmt.Sprintf(format, a...)
 	now := time.Now()
 	funcName, fileName, lineNo := getLogInfo(3)
@@ -40,26 +44,22 @@ func log(lv LogLevel, format string, a ...interface{}) {
 	fmt.Printf("[%s] [%s] [fileName:%s - funcName:%s - lineNo:%d]: %s\n", tf, getLogString(lv), fileName, funcName, lineNo, msg)
 }
 
-func (l ConsoleLogger) enable(LogLevel LogLevel) bool {
-	return LogLevel >= l.Level
-}
-
-func (l ConsoleLogger) Debug(format string, a ...interface{}) {
+func (c ConsoleLogger) Debug(format string, a ...interface{}) {
 	// 往指定的地方写日志
-	//if l.Level > DEBUG {
+	//if c.Level > DEBUG {
 	//	now := time.Now()
 	//	tf := now.Format("2006-01-02 15:04:05")
-	//	fmt.Printf("[%s] [%s] %s\n", tf, l.Level, msg)
+	//	fmt.Printf("[%s] [%s] %s\n", tf, c.Level, msg)
 	//}
 
-	if l.enable(DEBUG) {
+	if c.enable(DEBUG) {
 		log(DEBUG, format, a...)
 	}
 }
 
-func (l ConsoleLogger) Info(format string, a ...interface{}) {
+func (c ConsoleLogger) Info(format string, a ...interface{}) {
 	// 往指定的地方写日志
-	if l.enable(INFO) {
+	if c.enable(INFO) {
 		//now := time.Now()
 		//tf := now.Format("2006-01-02 15:04:05")
 		//fmt.Printf("[%s] [INFO] %s\n", tf, msg)
@@ -67,9 +67,9 @@ func (l ConsoleLogger) Info(format string, a ...interface{}) {
 	}
 }
 
-func (l ConsoleLogger) Warning(format string, a ...interface{}) {
+func (c ConsoleLogger) Warning(format string, a ...interface{}) {
 	// 往指定的地方写日志
-	if l.enable(WARNING) {
+	if c.enable(WARNING) {
 		//now := time.Now()
 		//tf := now.Format("2006-01-02 15:04:05")
 		//fmt.Printf("[%s] [WARNING] %s\n", tf, msg)
@@ -77,9 +77,9 @@ func (l ConsoleLogger) Warning(format string, a ...interface{}) {
 	}
 }
 
-func (l ConsoleLogger) Error(format string, a ...interface{}) {
+func (c ConsoleLogger) Error(format string, a ...interface{}) {
 	// 往指定的地方写日志
-	if l.enable(ERROR) {
+	if c.enable(ERROR) {
 		//now := time.Now()
 		//tf := now.Format("2006-01-02 15:04:05")
 		//fmt.Printf("[%s] [ERROR] %s\n", tf, msg)
@@ -87,9 +87,9 @@ func (l ConsoleLogger) Error(format string, a ...interface{}) {
 	}
 }
 
-func (l ConsoleLogger) Fatal(format string, a ...interface{}) {
+func (c ConsoleLogger) Fatal(format string, a ...interface{}) {
 	// 往指定的地方写日志
-	if l.enable(FATAL) {
+	if c.enable(FATAL) {
 		//now := time.Now()
 		//tf := now.Format("2006-01-02 15:04:05")
 		//fmt.Printf("[%s] [FATAL] %s\n", tf, msg)
