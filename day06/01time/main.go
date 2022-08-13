@@ -4,6 +4,8 @@
  * @Desc:
  */
 
+// https://www.liwenzhou.com/posts/Go/go-time/
+
 package main
 
 import (
@@ -119,11 +121,78 @@ func timeFormat() {
 	fmt.Println(timeObj.Unix())
 }
 
+// 两个时间相减
+func timeSub() {
+	now := time.Now()
+	nextDay, err := time.Parse("2006-01-02", "2022-08-14")
+	if err != nil {
+		fmt.Printf("parse time failed, err:%v\n", err)
+		return
+	}
+	// 注意：Sub 方法减去的是一个时间对象
+	d := nextDay.Sub(now)
+	fmt.Println("时间间隔:", d)
+}
+
+// sleep 一定的时间
+func timeSleep() {
+	// 方法1
+	time.Sleep(5 * time.Second)
+
+	// 方法2
+	fmt.Println("sleep 10 秒开始 ...")
+	time.Sleep(time.Duration(5) * time.Second)
+	fmt.Println("sleep 10 秒结束...")
+
+	// 方法3:如果使用了变量，则一定要显示转换类型吗，因为 Duration 类型实际上是 int64 的自定义类型
+	n := 10
+	time.Sleep(time.Duration(n) * time.Second)
+}
+
+func timeZoneDemo() {
+	// 获取本地的时间，也就是你电脑当前时间，当前中国是东八区，没有夏令时
+	now := time.Now()
+	fmt.Println(now)
+
+	// 明天的时间，这样解析出来是一个UTC的时间而不是东八区时间
+	// 按照指定格式解析一个字符串格式的时间
+	nextDay, err := time.Parse("2006-01-02 15:04:05", "2022-08-14 14:51:15")
+	if err != nil {
+		fmt.Printf("nextDay failed, err:%v\n", err)
+		return
+	}
+	fmt.Printf("nextDay UTC: %v\n", nextDay)
+
+	// 按照东八区的时区和格式解析一个字符串格式的时间
+	// 根据字符串加载时区
+	loc, err := time.LoadLocation("Asia/Shanghai")
+	if err != nil {
+		fmt.Printf("loadLocation failed, err:%v\n", err)
+		return
+	}
+	// 按照指定时区解析时间
+	timeObj, err := time.ParseInLocation("2006-01-02 15:04:05", "2022-08-14 14:51:15", loc)
+	if err != nil {
+		fmt.Printf("parse time failed, err:%v\n", err)
+		return
+	}
+	fmt.Printf("nextDay CST:%v\n", timeObj)
+
+	// 时间对象相减
+	td:=timeObj.Sub(now)
+	fmt.Printf("时间间隔:%v\n",td)
+}
+
 func main() {
 	//timeDemo()
 	//timestampDemo1()
 	//timeUnixToTimeFormat(1660226020)
 	//timeOperators()
 	//timeTick()
-	timeFormat()
+	//timeFormat()
+
+	//timeSub()
+	//timeSleep()
+
+	timeZoneDemo()
 }
