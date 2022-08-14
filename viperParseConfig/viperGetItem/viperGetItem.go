@@ -32,10 +32,10 @@ func ParseItems() {
 	mysqlPort := viper.Get("mysql.port")
 	mysqlPortsSlice := viper.GetIntSlice("mysql.ports")
 
-	metricsPort := viper.GetInt("mysql.metrics.port")
+	mysqlMetricsPort := viper.GetInt("mysql.metrics.port")
 	redisConf := viper.Get("redis")
 
-	mysqlMap := viper.GetStringMapString("mysql")
+	mysqlStringMap := viper.GetStringMapString("mysql")
 
 	fmt.Println("# viperGetItem -----------------------------------")
 
@@ -47,11 +47,19 @@ func ParseItems() {
 
 	fmt.Println("mysqlHost:", mysqlHost, ", mysqlUsername:", mysqlUsername, ", mysqlPort:", mysqlPort)
 	fmt.Println("mysqlPorts:", mysqlPortsSlice)
-	fmt.Println("metricsPort:", metricsPort)
+	fmt.Println("mysqlMetricsPort:", mysqlMetricsPort)
 	fmt.Println("redisConf:", redisConf)
 
+	fmt.Println("mysqlStringMap:", mysqlStringMap)
+
+	fmt.Println("mysqlStringMapUsername:", mysqlStringMap["username"])
+	fmt.Println("mysqlStringMapHost:", mysqlStringMap["metrics.host"])
+	fmt.Println("mysqlStringMapMetricsPort:", mysqlStringMap["metrics.port"])
+
+	fmt.Println()
+	mysqlMap := viper.GetStringMap("mysql")
 	fmt.Println("mysqlMap:", mysqlMap)
-	fmt.Println("mysqlMapUsername:", mysqlMap["username"])
-	fmt.Println("mysqlMapPorts:", mysqlMap["ports"])
-	fmt.Println("mysqlMapMetricsPort:", mysqlMap["mysql.metrics.port"])
+	fmt.Println("mysqlMapMetrics:", mysqlMap["metrics"])
+	fmt.Println("mysqlMapMetricsPort:", mysqlMap["metrics"])
+
 }
