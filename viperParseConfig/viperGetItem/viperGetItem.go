@@ -12,8 +12,9 @@ import (
 )
 
 // 读取配置项的值
-
 func ParseItems() {
+	fmt.Println("# ---------- viperGetItem start ----------")
+
 	// 设置要解析的配置文件名
 	viper.SetConfigName("item")
 	// 设置要解析的配置文件格式
@@ -36,8 +37,6 @@ func ParseItems() {
 	redisConf := viper.Get("redis")
 
 	mysqlStringMap := viper.GetStringMapString("mysql")
-
-	fmt.Println("# viperGetItem -----------------------------------")
 
 	if viper.IsSet("mysql.host") {
 		fmt.Println("[IsSet()] mysql.host is set")
@@ -62,4 +61,6 @@ func ParseItems() {
 	fmt.Println("mysqlMap:", mysqlMap)
 	fmt.Println("mysqlMapMetrics:", mysqlMap["metrics"])
 
+	fmt.Println("# ---------- viperGetItem end ----------")
+	fmt.Println()
 }

@@ -1,7 +1,7 @@
 /**
  * @Author: ayunwSky
- * @Date: 2022/8/14 21:01
- * @Desc:
+ * @Date  : 2022/8/14 21:01
+ * @Desc  :
  */
 
 package viperTomlAndJson
@@ -33,7 +33,7 @@ type Config struct {
 }
 
 func ParseTomlAndJson() {
-	fmt.Println("# viperTomlAndJson start -----------------------------------")
+	fmt.Println("# ---------- viperTomlAndJson start ----------")
 	// 定义一个 Config 结构体类型的变量 configToml
 
 	// 读取 toml 格式配置文件使用
@@ -79,5 +79,6 @@ func ParseTomlAndJson() {
 	fmt.Println("Config All:", configJson, "Redis:", configJson.Redis, "MySQL:", configJson.MySQL)
 	fmt.Printf("Redis Host: %v\n", configJson.Redis.Host)
 	fmt.Printf("MySQL Host: %v\n", configJson.MySQL.Host)
-	fmt.Println("# viperTomlAndJson end -----------------------------------")
+	fmt.Println("# ---------- viperTomlAndJson end ----------")
+	fmt.Println()
 }
