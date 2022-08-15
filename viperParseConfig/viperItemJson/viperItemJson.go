@@ -1,8 +1,13 @@
-package viperparsejsonitem
+/*
+ * @ -*- Author: ayunwSky
+ * @ -*- Date  : 2022/8/15 19:53
+ * @ -*- Desc  :
+*/
+
+package viperItemJson
 
 import (
 	"fmt"
-
 	"github.com/spf13/viper"
 )
 
@@ -24,12 +29,13 @@ type Metrics struct {
 
 type Config struct {
 	MySQL MySQLConfig
-	Metrcis Metrics
+	Metrics Metrics
 	Redis string
 }
 
+// ParseJsonItem 开始从 item.json 文件解析数据
 func ParseJsonItem() {
-	fmt.Println("# ---------- parse item.json start ----------")
+	//fmt.Println("# ---------- parse item.json start ----------")
 
 	var itemConfigJson Config
 
@@ -46,7 +52,7 @@ func ParseJsonItem() {
 	vJson.Unmarshal(&itemConfigJson)
 	fmt.Println("start parse item.json")
 	fmt.Println("config all:", itemConfigJson)
-	
+
 	fmt.Println("# ---------- MySQL Info ----------")
 	fmt.Println("MySQL:", itemConfigJson.MySQL)
 	fmt.Println("MySQL.Port:", itemConfigJson.MySQL.Port)
@@ -55,14 +61,13 @@ func ParseJsonItem() {
 	fmt.Println("MySQL.Password:", itemConfigJson.MySQL.Password)
 	fmt.Println("MySQL.Ports:", itemConfigJson.MySQL.Ports)
 
-	fmt.Println("# ---------- Metrcis Info ----------")
-	fmt.Println("Metrcis:", itemConfigJson.Metrcis)
-	fmt.Println("Metrcis.Host:", itemConfigJson.Metrcis.Host)
-	fmt.Println("Metrcis.Port:", itemConfigJson.Metrcis.Port)
-
-	fmt.Println("# ---------- Redis Info ----------")
-	fmt.Println("Redis:", itemConfigJson.redis)
-
-	fmt.Println("# ---------- parse item.json end ----------")
 	fmt.Println()
+	fmt.Println("# ---------- Metrics Info ----------")
+	fmt.Println("Metrics:", itemConfigJson.Metrics)
+	fmt.Println("Metrics.Host:", itemConfigJson.Metrics.Host)
+	fmt.Println("Metrics.Port:", itemConfigJson.Metrics.Port)
+
+	fmt.Println()
+	fmt.Println("# ---------- Redis Info ----------")
+	fmt.Println("Redis:", itemConfigJson.Redis)
 }

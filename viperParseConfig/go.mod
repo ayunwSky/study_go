@@ -1,4 +1,4 @@
-module github.com/ayunwSky/study_go/viperParseConfig
+module viperParseConfig
 
 go 1.19
 
