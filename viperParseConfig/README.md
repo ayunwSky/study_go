@@ -5,6 +5,11 @@
 https://github.com/spf13/viper
 ```
 
+#### 滴滴开源的 json 解析包
+```console
+https://github.com/json-iterator/go
+```
+
 #### 参考地址
 ```console
 https://www.cnblogs.com/jiujuan/p/13799976.html
