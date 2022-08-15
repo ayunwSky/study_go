@@ -60,6 +60,7 @@ func ParseItems() {
 
 	fmt.Println("mysqlStringMap:", mysqlStringMap)
 	fmt.Println("mysqlStringMapUsername:", mysqlStringMap["username"])
+
 	fmt.Println("mysqlStringMapHost:", mysqlStringMap["mysql.metrics.host"])
 	fmt.Println("mysqlStringMapMetricsPort:", mysqlStringMap["mysql.metrics.port"])
 
