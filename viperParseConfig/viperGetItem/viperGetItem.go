@@ -57,9 +57,9 @@ func ParseItems() {
 	fmt.Println("mysqlStringMapMetricsPort:", mysqlStringMap["metrics.port"])
 
 	fmt.Println()
+
 	mysqlMap := viper.GetStringMap("mysql")
 	fmt.Println("mysqlMap:", mysqlMap)
 	fmt.Println("mysqlMapMetrics:", mysqlMap["metrics"])
-	fmt.Println("mysqlMapMetricsPort:", mysqlMap["metrics"])
 
 }
