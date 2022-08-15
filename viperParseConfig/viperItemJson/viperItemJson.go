@@ -2,7 +2,7 @@
  * @ -*- Author: ayunwSky
  * @ -*- Date  : 2022/8/15 19:53
  * @ -*- Desc  :
-*/
+ */
 
 package viperItemJson
 
@@ -28,15 +28,13 @@ type Metrics struct {
 }
 
 type Config struct {
-	MySQL MySQLConfig
-	Metrics Metrics
-	Redis string
+	MySQL   MySQLConfig `json:"mysql"`
+	Metrics Metrics     `json:"metrics"`
+	Redis   string      `json:"redis"`
 }
 
 // ParseJsonItem 开始从 item.json 文件解析数据
 func ParseJsonItem() {
-	//fmt.Println("# ---------- parse item.json start ----------")
-
 	var itemConfigJson Config
 
 	vJson := viper.New()
@@ -49,9 +47,15 @@ func ParseJsonItem() {
 		return
 	}
 
-	vJson.Unmarshal(&itemConfigJson)
-	fmt.Println("start parse item.json")
+	if err := vJson.Unmarshal(&itemConfigJson); err != nil {
+		fmt.Printf("unmarshal json config failed, err: %v\n", err)
+		return
+	}
+
+	fmt.Println("---------- viperItemJson.go ----------")
 	fmt.Println("config all:", itemConfigJson)
+
+	fmt.Println()
 
 	fmt.Println("# ---------- MySQL Info ----------")
 	fmt.Println("MySQL:", itemConfigJson.MySQL)
@@ -60,12 +64,14 @@ func ParseJsonItem() {
 	fmt.Println("MySQL.Username:", itemConfigJson.MySQL.Username)
 	fmt.Println("MySQL.Password:", itemConfigJson.MySQL.Password)
 	fmt.Println("MySQL.Ports:", itemConfigJson.MySQL.Ports)
+	fmt.Println("MySQL.Ports[0]:", itemConfigJson.MySQL.Ports[0])
+	fmt.Println("MySQL.Ports[1]:", itemConfigJson.MySQL.Ports[1])
 
 	fmt.Println()
 	fmt.Println("# ---------- Metrics Info ----------")
-	fmt.Println("Metrics:", itemConfigJson.Metrics)
-	fmt.Println("Metrics.Host:", itemConfigJson.Metrics.Host)
-	fmt.Println("Metrics.Port:", itemConfigJson.Metrics.Port)
+	fmt.Println("Metrics:", itemConfigJson.MySQL.Metrics)
+	fmt.Println("Metrics.Host:", itemConfigJson.MySQL.Metrics.Host)
+	fmt.Println("Metrics.Port:", itemConfigJson.MySQL.Metrics.Port)
 
 	fmt.Println()
 	fmt.Println("# ---------- Redis Info ----------")

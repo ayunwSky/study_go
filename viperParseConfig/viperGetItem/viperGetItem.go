@@ -2,7 +2,7 @@
  * @ -*- Author: ayunwSky
  * @ -*- Date: 2022/8/14 21:32
  * @ -*- Desc:
-*/
+ */
 
 package viperGetItem
 
@@ -38,28 +38,30 @@ func ParseItems() {
 
 	mysqlStringMap := viper.GetStringMapString("mysql")
 
+	fmt.Println("---------- viperGetItem.go ----------")
+
 	if viper.IsSet("mysql.host") {
 		fmt.Println("[IsSet()] mysql.host is set")
 	} else {
 		fmt.Println("[IsSet()] mysql.host is not set")
 	}
 
-	fmt.Println("mysqlHost:", mysqlHost, ", mysqlUsername:", mysqlUsername, ", mysqlPort:", mysqlPort)
-	fmt.Println("mysqlPorts:", mysqlPortsSlice)
+	fmt.Println()
+	fmt.Println("mysqlHost:", mysqlHost)
+	fmt.Println("mysqlUsername:", mysqlUsername)
+	fmt.Println("mysqlPort:", mysqlPort)
+	fmt.Println("mysqlPortsSlice:", mysqlPortsSlice)
+	fmt.Println("mysqlPortsSlice[0]:", mysqlPortsSlice[0])
+	fmt.Println("mysqlPortsSlice[1]:", mysqlPortsSlice[1])
 	fmt.Println("mysqlMetricsPort:", mysqlMetricsPort)
 	fmt.Println("redisConf:", redisConf)
 
-	fmt.Println("mysqlStringMap:", mysqlStringMap)
-
-	fmt.Println("mysqlStringMapUsername:", mysqlStringMap["username"])
-	fmt.Println("mysqlStringMapHost:", mysqlStringMap["metrics.host"])
-	fmt.Println("mysqlStringMapMetricsPort:", mysqlStringMap["metrics.port"])
-
 	fmt.Println()
 
-	mysqlMap := viper.GetStringMap("mysql")
-	fmt.Println("mysqlMap:", mysqlMap)
-	fmt.Println("mysqlMapMetrics:", mysqlMap["metrics"])
+	fmt.Println("mysqlStringMap:", mysqlStringMap)
+	fmt.Println("mysqlStringMapUsername:", mysqlStringMap["username"])
+	fmt.Println("mysqlStringMapHost:", mysqlStringMap["mysql.metrics.host"])
+	fmt.Println("mysqlStringMapMetricsPort:", mysqlStringMap["mysql.metrics.port"])
 
 	fmt.Println()
 }

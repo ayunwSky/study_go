@@ -2,7 +2,7 @@
  * @ -*- Author: ayunwSky
  * @ -*- Date  : 2022/8/14 20:39
  * @ -*- Desc  :
-*/
+ */
 
 package viperToml
 
@@ -27,13 +27,12 @@ type RedisConfig struct {
 }
 
 type Config struct {
-	MySQL MySQLConfig
-	Redis RedisConfig
-	Title string
+	MySQL MySQLConfig `toml:"mysql"`
+	Redis RedisConfig `toml:"redis"`
+	Title string       `toml:"title"`
 }
 
 func ParseToml() {
-	//fmt.Println("# ---------- viperToml start ----------")
 	// 定义一个 Config 结构体类型的变量 config
 	var config Config
 
@@ -47,7 +46,13 @@ func ParseToml() {
 
 	viper.Unmarshal(&config)
 
-	fmt.Println("Config: ", config, "Redis: ", config.Redis, "MySQL: ", config.MySQL)
+	fmt.Println()
+	fmt.Println("---------- viperToml.go ----------")
+	fmt.Println()
+
+	fmt.Println("Config: ", config)
+	fmt.Println("Redis: ", config.Redis)
+	fmt.Println("MySQL: ", config.MySQL)
 	fmt.Printf("Redis Host: %v\n", config.Redis.Host)
 	fmt.Printf("title: %v\n", config.Title)
 

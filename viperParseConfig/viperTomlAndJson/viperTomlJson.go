@@ -2,7 +2,7 @@
  * @ -*- Author: ayunwSky
  * @ -*- Date  : 2022/8/14 21:01
  * @ -*- Desc  :
-*/
+ */
 
 package viperTomlAndJson
 
@@ -13,23 +13,23 @@ import (
 )
 
 type MySQLConfig struct {
-	Host     string `toml:"host"`
-	Port     int    `toml:"port"`
-	Username string `toml:"username"`
-	Password string `toml:"password"`
+	Host     string `toml:"host" json:"host"`
+	Port     int    `toml:"port" json:"port"`
+	Username string `toml:"username" json:"username"`
+	Password string `toml:"password" json:"password"`
 }
 
 type RedisConfig struct {
-	Host     string `toml:"host"`
-	Port     int    `toml:"port"`
-	Password string `toml:"password"`
-	Database int    `toml:"database"`
+	Host     string `toml:"host" json:"host"`
+	Port     int    `toml:"port" json:"port"`
+	Password string `toml:"password" json:"password"`
+	Database int    `toml:"database" json:"database"`
 }
 
 type Config struct {
-	MySQL MySQLConfig
-	Redis RedisConfig
-	Title string
+	MySQL MySQLConfig `toml:"mysql" json:"mysql"`
+	Redis RedisConfig `toml:"redis" json:"redis"`
+	Title string       `toml:"title" json:"title"`
 }
 
 func ParseTomlAndJson() {
@@ -50,9 +50,12 @@ func ParseTomlAndJson() {
 	}
 
 	vToml.Unmarshal(&configToml)
-	fmt.Println("read config.toml")
-	fmt.Println("Config All:", configToml, "Redis:", configToml.Redis, "MySQL:", configToml.MySQL)
 
+	fmt.Println("---------- viperTomlJson.go ----------")
+	fmt.Println()
+	fmt.Println("Config All:", configToml)
+	fmt.Println("Redis:", configToml.Redis)
+	fmt.Println("MySQL:", configToml.MySQL)
 	fmt.Printf("Redis Host: %v\n", configToml.Redis.Host)
 	fmt.Printf("MySQL Host: %v\n", configToml.MySQL.Host)
 	fmt.Printf("title: %v\n", configToml.Title)
@@ -75,9 +78,11 @@ func ParseTomlAndJson() {
 	}
 
 	vJson.Unmarshal(&configJson)
-	fmt.Println("Config All:", configJson, "Redis:", configJson.Redis, "MySQL:", configJson.MySQL)
+	fmt.Println("Config All:", configJson)
+	fmt.Println("Redis:", configJson.Redis)
+	fmt.Println("MySQL:", configJson.MySQL)
 	fmt.Printf("Redis Host: %v\n", configJson.Redis.Host)
 	fmt.Printf("MySQL Host: %v\n", configJson.MySQL.Host)
-	//fmt.Println("# ---------- viperTomlAndJson end ----------")
+
 	fmt.Println()
 }
