@@ -24,7 +24,8 @@ func ParseItems() {
 
 	// 根据上面的配置加载配置文件
 	if err := viper.ReadInConfig(); err != nil {
-		fmt.Printf("load item config file failed, err:%v\n", err)
+		// fmt.Printf("load item config file failed, err:%v\n", err)
+		panic(fmt.Errorf("load item config file failed, err:%v\n", err))
 		return
 	}
 
