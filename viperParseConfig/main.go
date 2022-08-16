@@ -18,7 +18,7 @@ func main() {
 
 	viperTomlAndJson.ParseTomlAndJson()
 
-	viperGetItem.ParseItems()
-
 	viperItemJson.ParseJsonItem()
+
+	viperGetItem.ParseItems()
 }
