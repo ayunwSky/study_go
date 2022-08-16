@@ -77,45 +77,45 @@ func Init() {
 }
 
 type basicinfo struct {
-	RealName string
-	Age      int
-	Language []string
-	Married  bool
+	RealName string   `yaml:"realname"`
+	Age      int      `yaml:"age"`
+	Language []string `yaml:"language"`
+	Married  bool     `yaml:"married"`
 }
 
 type hobby struct {
-	Sport       []string
-	Music       []string
-	LuckyNumber int
+	Sport       []string `yaml:"sport:`
+	Music       []string `yaml:"music"`
+	LuckyNumber int      `yaml:"luckNumber"`
 }
 
 type admin struct {
-	Addr     string
-	Password string
-	Db       int
+	Addr     string `yaml:"addr"`
+	Password string `yaml:"password"`
+	Db       int    `yaml:"db"`
 }
 
 type redis struct {
-	Admin admin
+	Admin admin `yaml:"admin"`
 }
 
 type mysql struct {
-	Driver string
-	Uri    string
+	Driver string `yaml:"driver"`
+	Uri    string `yaml:"uri"`
 }
 
 type jwt struct {
-	Secret string
+	Secret string `yaml:"secret"`
 }
 
 type TotalConfig struct {
-	TimeStamp string
-	Username  string
-	BasicInfo basicinfo
-	Hobby     hobby
-	Redis     redis
-	MySQL     mysql
-	Jwt       jwt
+	TimeStamp string    `yaml:"timestamp"`
+	Username  string    `yaml:"username"`
+	BasicInfo basicinfo `yaml:"basicinfo"`
+	Hobby     hobby     `yaml:"hobby"`
+	Redis     redis     `yaml:"redis"`
+	MySQL     mysql     `yaml:"mysql"`
+	Jwt       jwt       `yaml:"jwt"`
 }
 
 func ParseYamlConf() {
