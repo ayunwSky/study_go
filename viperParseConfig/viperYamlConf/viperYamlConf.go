@@ -1,7 +1,7 @@
 /*
  * @ -*- Author: ayunwSky
- * @ -*- Date: 2022/8/16 13:02
- * @ -*- Desc: parse yaml config
+ * @ -*- Date  : 2022/8/16 13:02
+ * @ -*- Desc  : parse yaml config
  */
 
 package viperYamlConf
@@ -119,7 +119,7 @@ type TotalConfig struct {
 }
 
 func ParseYamlConf() {
-	fmt.Println("parse yaml config")
+	fmt.Println("Go parse yaml config.")
 	fmt.Println()
 
 	Init()
