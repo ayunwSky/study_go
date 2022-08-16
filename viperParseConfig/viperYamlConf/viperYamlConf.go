@@ -18,7 +18,7 @@ var AllConfig TotalConfig
 
 /*
 SetConfigName 指定配置文件名，不需要加后缀
-SetConfigType 指定配置文件类型，可以省略，viper会自动识别
+SetConfigType 指定配置文件类型，可以省略，viper会自动识别。建议加上
 AddConfigPath 添加配置文件所在目录，可以多个，告诉viper区哪里寻找配置文件
 ReadInConfig  从前面告知的配置中加载配置文件
 MergeInConfig 从前面告知的配置中加载配置文件并合并到之前
