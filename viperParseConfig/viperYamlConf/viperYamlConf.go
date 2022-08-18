@@ -62,7 +62,7 @@ SetConfigFile 指定配置文件的全路径
 // 	config.MergeInConfig()
 // }
 
-// 读取配置文件方法三 (推荐)
+// Init 读取配置文件方法三 (推荐)
 func Init() {
 	config = viper.New()
 	// 设置 public 配置文件名
@@ -84,7 +84,7 @@ type basicinfo struct {
 }
 
 type hobby struct {
-	Sport       []string `yaml:"sport:`
+	Sport       []string `yaml:"sport"`
 	Music       []string `yaml:"music"`
 	LuckyNumber int      `yaml:"luckNumber"`
 }

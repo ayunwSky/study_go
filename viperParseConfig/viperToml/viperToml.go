@@ -29,7 +29,7 @@ type RedisConfig struct {
 type Config struct {
 	MySQL MySQLConfig `toml:"mysql"`
 	Redis RedisConfig `toml:"redis"`
-	Title string       `toml:"title"`
+	Title string      `toml:"title"`
 }
 
 func ParseToml() {
